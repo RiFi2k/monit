@@ -1,0 +1,6 @@
+---
+- name: Install Monit package
+  apt:
+    name: monit
+    state: present
+    force: yes

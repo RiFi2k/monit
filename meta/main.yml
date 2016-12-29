@@ -1,0 +1,39 @@
+galaxy_info:
+  author: Reilly Lowery
+  description: Setup and configure Monit for Trellis
+  license: MIT
+  min_ansible_version: 2.0.2
+  platforms:
+  - name: Ubuntu
+    versions:
+  #  - all
+  #  - lucid
+  #  - maverick
+  #  - natty
+  #  - oneiric
+  #  - precise
+  #  - quantal
+  #  - raring
+  #  - saucy
+  #  - trusty
+  #  - utopic
+  #  - vivid
+  #  - wily
+     - xenial
+  #  - yakkety
+  #- name: Debian
+  #  versions:
+  #  - all
+  #  - etch
+  #  - jessie
+  #  - lenny
+  #  - sid
+  #  - squeeze
+  #  - stretch
+  #  - wheezy
+
+  galaxy_tags:
+    - Trellis
+    - monitoring
+
+dependencies: []
