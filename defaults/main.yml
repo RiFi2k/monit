@@ -19,21 +19,31 @@ monit_smtp_password: "{{ vault_mail_password }}"
 
 # You can configure an SMTP fallback if you choose, if the main SMTP credentials
 # above fail Monit will use your fallback if configured.
-# You can safely store the fallback password in group_vars/all/vault.yml using
-# vault_fallback_mail_password
+# You can safely store the fallback password in group_vars/all/vault.yml
+# using vault_fallback_mail_password
 monit_fallback_smtp: false
-#  monit_fallback_smtp_server: smtp.example.com
-#  monit_fallback_smtp_port: 10025
-#  monit_fallback_smtp_username: example_username
-#  monit_fallback_smtp_password: password
+##  monit_fallback_smtp_server: smtp.example.com
+##  monit_fallback_smtp_port: 10025
+##  monit_fallback_smtp_username: example_username
+##  monit_fallback_smtp_password: password
 
 # You can edit the email address the alert email comes from
-monit_alert_sender_address: "monit@example.com"
+monit_alert_sender_address: monit@example.com
 
 # All important alerts for services with errors as configured in the file will
 # be mailed to this email address.
-monit_alert_admin_email: "sysadmin@example.com"
+monit_alert_admin_email: sysadmin@example.com
 
 # Do not alert when Monit starts, stops or performs a user initiated action.
 # This filter is recommended to avoid getting alerts for trivial cases.
 monit_reduce_alerts: false
+
+# Set to true if you want to be able to monitor and manage services from
+# a web interface.
+monit_http_monitoring: false
+monit_http_username: admin
+monit_http_password: monit
+# You need to point the URL you add below to the remote server IP just as if
+# you were setting up a regular site URL. This URL will be how you access the
+# web interface.
+monit_http_url: monitor.example.com

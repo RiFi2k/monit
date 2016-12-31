@@ -4,3 +4,24 @@
     name: monit
     state: present
     force: yes
+
+- name: Configure Monit settings
+  template:
+    src: monitrc.j2
+    dest: "/etc/monit/monitrc"
+  notify: reload monit
+
+- name: Create Monit configuration for Nginx
+  template:
+    src: monit-nginx.conf.j2
+    dest: {{ nginx_path }}/sites-available/monit.conf
+  when: monit_http_monitoring
+
+- name: Enable Monit web interface
+  file:
+    src: "{{ nginx_path }}/sites-available/monit.conf"
+    dest: "{{ nginx_path }}/sites-enabled/monit.conf"
+    owner: root
+    group: root
+    state: link
+  notify: reload nginx
